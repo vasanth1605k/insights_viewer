@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Data</title>
+</head>
+<style type="text/css">
+    .styled-table {
+        padding-left: 100;
+            border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+     clear: both; 
+  width: 100%;
+  position: relative; 
+  margin: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+td{
+     word-break: break-word;
+}
+</style>
+<body bgcolor="lightblue">
+    <a href="/" style="background-color:white;">HOME</a>
+    <table border="1px solid" class="styled-table" style="background-color: white;">
+        <thead>
+            <tr>
+                <th>website</th>
+               
+                <th>wordcount</th>
+                
+                <th>Buttons</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry['web'] }}</td>
+                <td>{{ entry['count'] }}</td>
+                <td id="fv">True</td>
+                  {% endfor %}
+                
+                <td><button onclick="removeRow(this)">Remove</button>
+
+
+            </tr>
+          
+
+           
+        </tbody>
+    </table>
+
+     <script>
+    
+
+        function removeRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+</body>
+</html>
